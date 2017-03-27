@@ -6,28 +6,35 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-<div name="header" class="header">
+<div class="header">
     <p id="header_label">PROSTO CHAT</p>
 </div>
 <div class="signin">
+    <div class="form_signin">
+    <form class="form" method="post">
     <div class="header_signin">
         <p id="signin_label">ВХОД</p>
     </div>
     <div class="content_signin">
-        <input type="text" class="input login" name="login" placeholder="ЛОГИН">
-        <input type="text" class="input password" name="password" placeholder="КЛЮЧ">
-        <input type="button" class="button button_signin" name="button_signin" value="ВОЙТИ">
+        <input type="text" class="signin_input login" name="login" placeholder="ЛОГИН">
+        <input type="text" class="signin_input password" name="password" placeholder="КЛЮЧ">
+        <button type="button" class="button button_signin" name="button_signin">ВОЙТИ</button>
+    </div>
+    </form>
     </div>
 
-
+    <div class="form_reg">
+    <form class="form" method="get">
     <div class="header_reg">
         <p id="reg_label">РЕГИСТРАЦИЯ</p>
     </div>
     <div class="content_reg">
-        <input type="text" class="input reg name" name="name" placeholder="ИМЯ И ФАМИЛИЯ">
-        <input type="text" class="input reg new_login" name="new_login" placeholder="ЛОГИН">
-        <input type="text" class="input reg email" name="email" placeholder="ЭЛ.ПОЧТА">
-        <input type="button" class="button button_reg" name="login" value="ВХОД">
+        <input type="text" class="signin_input reg name" name="name" placeholder="ИМЯ И ФАМИЛИЯ">
+        <input type="text" class="signin_input reg new_login" name="new_login" placeholder="ЛОГИН">
+        <input type="text" class="signin_input reg email" name="email" placeholder="ЭЛ.ПОЧТА">
+        <button type="button" class="button button_reg" name="login">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+    </div>
+    </form>
     </div>
 </div>
 </body>
