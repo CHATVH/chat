@@ -30,7 +30,6 @@ body{
     height:650px;
 }
 .header_signin {
-    /*height: 45px;*/
     opacity: 0.4;
     background-color: #12121a;
     border-top-left-radius: 10px;
@@ -49,8 +48,6 @@ body{
 .content_signin {
     padding: 0 30px 0;
     margin-top: 4px;
-    /*margin-right: 273px;*/
-    /*width: 406px;*/
     box-sizing: border-box;
     height: 180px;
     opacity: 0.4;
@@ -62,11 +59,19 @@ body{
 .input{
     padding-left: 10px;
     font-family: MicraC;
-    background-color: #0e6e69;
+    background-color: rgba(14, 110, 105, 1);
     border-radius: 5px;
     width: 328px;
     height: 32px;
     border: 2px solid #74c6bf;
+}
+
+.button {
+    height: 38px;
+    font-family: MicraC;
+    background-color: rgba(14, 110, 105, 1);
+    border-radius: 5px;
+    border: 0;
 }
 
 .login {
@@ -79,10 +84,8 @@ body{
 }
 
 .button_signin {
-    height: 38px;
     text-align: center;
     width: 102px;
-    border: 0;
 }
 .button:hover{
     border: 2px solid #74c6bf;
@@ -127,10 +130,7 @@ body{
 }
 
 .button_reg {
-    margin-left: 20px;
     margin-top: 36px;
-    height: 38px;
     text-align: center;
-    width: 300px;
-    border: 0;
+    width: 342px;
 }
