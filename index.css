@@ -1,0 +1,137 @@
+body{
+    min-width: 700px;
+    margin: 0px;
+    padding: 0px;
+    background-attachment: fixed;
+    background: url(bg.png) no-repeat;
+    background-size: 100%;
+    font-family: MicraC;
+}
+
+.header {
+    align: top;
+    background-color: #12121a;
+    height: 1.5cm;
+    opacity: 0.4;
+}
+
+#header_label {
+    text-align: center;
+    margin:0px;
+    padding-top: 9px;
+    font-size: 36px;
+    color: #6baea8;
+    opacity: 100;
+}
+.signin{
+    margin-top: 35px;
+    margin-right: 273px;
+    float: right;
+    width: 406px;
+    height:650px;
+}
+.header_signin {
+    /*height: 45px;*/
+    opacity: 0.4;
+    background-color: #12121a;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#signin_label {
+    color: #6baea8;
+    padding: 13px;
+    margin: 0px;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+.content_signin {
+    padding: 0 30px 0;
+    margin-top: 4px;
+    /*margin-right: 273px;*/
+    /*width: 406px;*/
+    box-sizing: border-box;
+    height: 180px;
+    opacity: 0.4;
+    background-color: #12121a;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.input{
+    padding-left: 10px;
+    font-family: MicraC;
+    background-color: #0e6e69;
+    border-radius: 5px;
+    width: 328px;
+    height: 32px;
+    border: 2px solid #74c6bf;
+}
+
+.login {
+    margin-top: 33px;
+}
+
+.password {
+    margin-top: 33px;
+    width: 218px;
+}
+
+.button_signin {
+    height: 38px;
+    text-align: center;
+    width: 102px;
+    border: 0;
+}
+.button:hover{
+    border: 2px solid #74c6bf;
+}
+
+.reg{
+    margin-top: 35px;
+    padding-left: 10px;
+    font-family: MicraC;
+    background-color: #0e6e69;
+    border-radius: 5px;
+    width: 328px;
+    height: 32px;
+    border: 2px solid #74c6bf;
+}
+
+.header_reg {
+    margin-top: 36px;
+    opacity: 0.4;
+    background-color: #12121a;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#reg_label {
+    color: #6baea8;
+    padding: 13px;
+    margin: 0px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.content_reg {
+    padding: 0 30px 0;
+    margin-top: 4px;
+    box-sizing: border-box;
+    height: 333px;
+    opacity: 0.4;
+    background-color: #12121a;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.button_reg {
+    margin-left: 20px;
+    margin-top: 36px;
+    height: 38px;
+    text-align: center;
+    width: 300px;
+    border: 0;
+}
