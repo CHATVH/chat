@@ -7,7 +7,6 @@
     url('fonts/micracb-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-
 }
 
 body{
@@ -17,7 +16,6 @@ body{
     background-attachment: fixed;
     background: url(bg.jpg);
     font-family: 'micracbold', Arail;
-
 }
 
 .header {
@@ -35,6 +33,7 @@ body{
     color: #6baea8;
     opacity: 1;
 }
+
 .form_signin {
     margin-bottom: 36px;
 }
@@ -45,7 +44,7 @@ body{
     width: 406px;
     height:650px;
 }
-.header_signin {
+.header_signin, .header_reg {
     opacity: 0.4;
     background-color: #12121a;
     border-top-left-radius: 10px;
@@ -58,12 +57,10 @@ body{
     text-align: center;
     font-size: 18px;
     margin: 0px 0px 4px 0px;
-
 }
 
 .content_signin {
     padding: 33px 30px 0;
-    /*margin-top: 4px;*/
     box-sizing: border-box;
     height: 180px;
     opacity: 0.4;
@@ -80,6 +77,11 @@ body{
     width: 328px;
     height: 32px;
     border: 2px solid #74c6bf;
+}
+
+.signin_input:focus {
+    transition: border .2s;
+    border: 2px solid white;
 }
 
 .login {
@@ -103,6 +105,7 @@ body{
     width: 102px;
 }
 .button:hover{
+    transition: border .1s;
     border: 2px solid #74c6bf;
 }
 
@@ -115,13 +118,6 @@ body{
     width: 328px;
     height: 32px;
     border: 2px solid #74c6bf;
-}
-
-.header_reg {
-    opacity: 0.4;
-    background-color: #12121a;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
 #reg_label {
