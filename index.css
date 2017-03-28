@@ -7,6 +7,7 @@
     url('fonts/micracb-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+
 }
 
 body{
@@ -15,13 +16,13 @@ body{
     padding: 0px;
     background-attachment: fixed;
     background: url(bg.jpg);
-    font-family: 'micracbold', Arail;
+    font-family: 'micracbold', Arial;
 }
 
 .header {
     background-color: #12121a;
     height: 63px;
-    opacity: 0.5;
+    opacity: 0.6;
     margin-bottom: 35px;
 }
 
@@ -31,7 +32,7 @@ body{
     padding-top: 9px;
     font-size: 36px;
     color: #6baea8;
-    opacity: 1;
+    opacity: 0.6;
 }
 
 .form_signin {
@@ -45,7 +46,7 @@ body{
     height:650px;
 }
 .header_signin, .header_reg {
-    opacity: 0.5;
+    opacity: 0.6;
     background-color: #12121a;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -63,7 +64,7 @@ body{
     padding: 33px 30px 0;
     box-sizing: border-box;
     height: 180px;
-    opacity: 0.5;
+    opacity: 0.6;
     background-color: #12121a;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -71,7 +72,7 @@ body{
 
 .signin_input{
     padding-left: 10px;
-    font-family: 'micracbold';
+    font-family: 'micracbold', Arial;
     background-color: rgba(14, 110, 105, 1);
     border-radius: 5px;
     width: 328px;
@@ -90,7 +91,7 @@ body{
 
 .button {
     height: 38px;
-    font-family: 'micracbold';
+    font-family: 'micracbold', Arial;
     background-color: rgba(14, 110, 105, 1);
     border-radius: 5px;
     border: 0;
@@ -113,7 +114,7 @@ body{
 .reg{
     margin-bottom: 35px;
     padding-left: 10px;
-    font-family: 'micracbold';
+    font-family: 'micracbold', Arial;
     background-color: #0e6e69;
     border-radius: 5px;
     width: 328px;
@@ -133,7 +134,7 @@ body{
     padding: 35px 30px 0;
     box-sizing: border-box;
     height: 333px;
-    opacity: 0.5;
+    opacity: 0.6;
     background-color: #12121a;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;

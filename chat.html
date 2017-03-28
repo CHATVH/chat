@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>chat page</title>
+    <link rel="stylesheet" type="text/css" href="chat.css">
+</head>
+<body>
+    <div class="header">
+        <p id="header_label">CHAT</p>
+    </div>
+    <div class="chat">
+        <div class="form_chat">
+            <form class="form_header_chat">
+                <div class="header_chat">
+                    <div class="header_chat_username"><p id="chat_user">USER_1</p></div>
+                    <div class="header_chat_exit"><a href="index.html"><img class="button_exit" src="bn_exit.png"></a></div>
+                </div>
+            </form>
+                <div class="content_chat">
+                    <textarea class="border_style chat_inpute_message" readonly></textarea>
+                    <div class="border_style users_tab">
+                        <ul>
+                            <li><span>USER_1</span></li>
+                            <li><span>USER_2</span></li>
+                        </ul>
+                    </div>
+                    <input class="border_style input_message" placeholder="СООБЩЕНИЕ...">
+                    <button type="text" class="button button_send">ОТПРАВИТЬ</button>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
