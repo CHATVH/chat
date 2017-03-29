@@ -1,38 +1,28 @@
-@font-face {
-    font-family: 'micracbold';
-    src: url('fonts/micracb-webfont.eot');
-    src: url('fonts/micracb-webfont.eot?#iefix') format('embedded-opentype'),
-    url('fonts/micracb-webfont.woff2') format('woff2'),
-    url('fonts/micracb-webfont.woff') format('woff'),
-    url('fonts/micracb-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
     min-width: 700px;
     margin: 0px;
     padding: 0px;
     background-attachment: fixed;
     background: url(bg.jpg);
-    font-family: 'micracbold', Arial;
+    font-family: "Arial Narrow";
 }
 
 .header {
     background-color: #12121a;
     height: 63px;
-    opacity: 0.6;
+    opacity: 0.7;
     margin-bottom: 109px;
 }
 
 #header_label {
-    font-family: 'micracbold', Arial;
+    font-family: "Arial Narrow";
+    letter-spacing: 5px;
     text-align: center;
     margin:0px;
-    padding-top: 9px;
+    padding-top: 10px;
     font-size: 36px;
     color: #6baea8;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .chat {
@@ -42,7 +32,7 @@ body {
 }
 
 .header_chat {
-    opacity: 0.6;
+    opacity: 0.7;
     background-color: #12121a;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -60,7 +50,7 @@ body {
     margin: 0px;
     width: 40px;
     height: 39px;
-    padding: 7px 38px 0px 0px;
+    padding: 4px 38px 0px 0px;
     margin-right: 0px;
     float: right;
 }
@@ -69,15 +59,15 @@ body {
     text-align: left;
     margin: 0px;
     padding: 13px 0px 13px 37px;
-    font-size: 18pt;
     color: #6baea8;
+    font-size: 21px;
 }
 
 .content_chat {
     padding: 38px 0 0 0;
     box-sizing: border-box;
     height: 640px;
-    opacity: 0.6;
+    opacity: 0.7;
     background-color: #12121a;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -89,7 +79,6 @@ body {
     margin: 0px 34px 26px 38px;
     height: 490px;
     width: 670px;
-    background-color: rgba(14, 110, 105, 1);
 }
 
 .users_tab {
@@ -116,9 +105,10 @@ body {
 
 .button_send {
     text-align: center;
+    font-size: 18px;
     width: 185px;
     background-color: rgb(14, 110, 105);
-    font-family: 'micracbold', Arial;
+    font-family: "Arial Narrow";
 }
 
 .button:hover{
@@ -157,9 +147,10 @@ li:before {
 
 .border_style {
     border: 2px solid #74c6bf;
-    font-family: 'micracbold', Arial;
+    font-family: "Arial Narrow";
     background-color: rgb(14, 110, 105);
     border-radius: 5px;
+    font-size: 18px;
 }
 
 .border_style:focus {

@@ -1,38 +1,27 @@
-@font-face {
-    font-family: 'micracbold';
-    src: url('fonts/micracb-webfont.eot');
-    src: url('fonts/micracb-webfont.eot?#iefix') format('embedded-opentype'),
-    url('fonts/micracb-webfont.woff2') format('woff2'),
-    url('fonts/micracb-webfont.woff') format('woff'),
-    url('fonts/micracb-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 body{
     min-width: 700px;
     margin: 0px;
     padding: 0px;
     background-attachment: fixed;
     background: url(bg.jpg);
-    font-family: 'micracbold', Arial;
+    font-family: "Arial Narrow";
 }
 
 .header {
     background-color: #12121a;
     height: 63px;
-    opacity: 0.6;
+    opacity: 0.7;
     margin-bottom: 35px;
 }
 
 #header_label {
     text-align: center;
     margin:0px;
-    padding-top: 9px;
+    padding-top: 10px;
     font-size: 36px;
     color: #6baea8;
-    opacity: 0.6;
+    opacity: 0.7;
+    letter-spacing: 5px;
 }
 
 .form_signin {
@@ -46,13 +35,13 @@ body{
     height:650px;
 }
 .header_signin, .header_reg {
-    opacity: 0.6;
+    opacity: 0.7;
     background-color: #12121a;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-#signin_label {
+.labels {
     color: #6baea8;
     padding: 13px;
     text-align: center;
@@ -64,15 +53,16 @@ body{
     padding: 33px 30px 0;
     box-sizing: border-box;
     height: 180px;
-    opacity: 0.6;
+    opacity: 0.7;
     background-color: #12121a;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 .signin_input{
+    font-size: 18px;
     padding-left: 10px;
-    font-family: 'micracbold', Arial;
+    font-family: "Arial Narrow";
     background-color: rgba(14, 110, 105, 1);
     border-radius: 5px;
     width: 328px;
@@ -81,7 +71,7 @@ body{
 }
 
 .signin_input:focus {
-    transition: border .2s;
+    transition: border .3s;
     border: 2px solid white;
 }
 
@@ -91,7 +81,8 @@ body{
 
 .button {
     height: 38px;
-    font-family: 'micracbold', Arial;
+    font-family: "Arial Narrow";
+    font-size: 18px;
     background-color: rgba(14, 110, 105, 1);
     border-radius: 5px;
     border: 0;
@@ -105,36 +96,22 @@ body{
 .button_signin {
     text-align: center;
     width: 102px;
+    margin-left: 4px;
 }
 .button:hover{
-    transition: border .1s;
+    transition: border .3s;
     border: 2px solid #74c6bf;
 }
 
 .reg{
     margin-bottom: 35px;
-    padding-left: 10px;
-    font-family: 'micracbold', Arial;
-    background-color: #0e6e69;
-    border-radius: 5px;
-    width: 328px;
-    height: 32px;
-    border: 2px solid #74c6bf;
-}
-
-#reg_label {
-    color: #6baea8;
-    padding: 13px;
-    margin: 0px 0px 4px 0px;
-    text-align: center;
-    font-size: 18px;
 }
 
 .content_reg {
     padding: 35px 30px 0;
     box-sizing: border-box;
     height: 333px;
-    opacity: 0.6;
+    opacity: 0.7;
     background-color: #12121a;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
