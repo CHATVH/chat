@@ -60,6 +60,7 @@ body{
 }
 
 .signin_input{
+    outline: none;
     font-size: 18px;
     padding-left: 10px;
     font-family: "Arial Narrow";
@@ -80,6 +81,7 @@ body{
 }
 
 .button {
+    outline: none;
     height: 38px;
     font-family: "Arial Narrow";
     font-size: 18px;
