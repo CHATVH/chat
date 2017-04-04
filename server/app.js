@@ -4,6 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var socket = require();
+
+// crypto-js modules
+var AES = require("crypto-js/aes");
+var SHA256 = require("crypto-js/sha256");
+//
 
 var index = require('./routes/index');
 var chat = require('./routes/chat');
