@@ -4,7 +4,17 @@ body{
     padding: 0px;
     background-attachment: fixed;
     background: url(../images/bg.jpg);
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow", Arial;
+}
+
+.FAQ{
+    float: right;
+    margin: 0px;
+    margin-top: 7px;
+    margin-right: 38px;
+    font-size: 24px;
+    color: #6baea8;
+    text-decoration: none;
 }
 
 .header {
@@ -63,7 +73,7 @@ body{
     outline: none;
     font-size: 18px;
     padding-left: 10px;
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow", Arial;
     background-color: rgba(14, 110, 105, 1);
     border-radius: 5px;
     width: 328px;
@@ -83,7 +93,7 @@ body{
 .button {
     outline: none;
     height: 38px;
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow", Arial;
     font-size: 18px;
     background-color: rgba(14, 110, 105, 1);
     border-radius: 5px;

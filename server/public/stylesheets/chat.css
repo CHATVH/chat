@@ -1,10 +1,19 @@
 body {
-    min-width: 700px;
     margin: 0px;
     padding: 0px;
     background-attachment: fixed;
     background: url(../images/bg.jpg);
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow", Arial;
+}
+
+.FAQ{
+    float: right;
+    margin: 0px;
+    margin-top: 7px;
+    margin-right: 38px;
+    font-size: 24px;
+    color: #6baea8;
+    text-decoration: none;
 }
 
 .header {
@@ -15,14 +24,14 @@ body {
 }
 
 #header_label {
-    font-family: "Arial Narrow";
-    letter-spacing: 5px;
     text-align: center;
+    font-family: "Arial Narrow", Arial;
     margin:0px;
     padding-top: 10px;
     font-size: 36px;
     color: #6baea8;
     opacity: 0.7;
+    letter-spacing: 5px;
 }
 
 .chat {
@@ -74,11 +83,12 @@ body {
 }
 
 .chat_inpute_message {
+    padding-top: 10px;
     float: left;
     resize: none;
     margin: 0px 34px 26px 38px;
-    height: 490px;
-    width: 670px;
+    height: 484px;
+    width: 634px;
 }
 
 .users_tab {
@@ -109,7 +119,7 @@ body {
     font-size: 18px;
     width: 185px;
     background-color: rgb(14, 110, 105);
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow", Arial;
 }
 
 .button:hover{
@@ -124,7 +134,7 @@ ul {
 li {
     display: none;
     position: relative;
-    padding-bottom: 16px;
+    padding-bottom: 10px;
     display: list-item;
     text-align: -webkit-match-parent;
 }
@@ -143,13 +153,13 @@ li:before {
     position: absolute;
     left: -23px;
     top: 50%;
-    margin-top: -15px;
+    margin-top: -10px;
 }
 
 .border_style {
     outline: none;
     border: 2px solid #74c6bf;
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow", Arial;
     background-color: rgb(14, 110, 105);
     border-radius: 5px;
     font-size: 18px;

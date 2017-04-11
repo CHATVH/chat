@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var socket = require();
+
+
 
 // crypto-js modules
 var AES = require("crypto-js/aes");
@@ -17,6 +18,22 @@ var users = require('./routes/users');
 
 var app = express();
 
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+server.listen(4200);
+
+io.on('connection', function(client) {
+  console.log(client)
+    client.on('message', function (data) {
+        client.broadcast.emit('getMessage',data); //сообщение всем кроме отправителя
+        client.emit('getMessage',data); //сообщение только отправителю
+  });
+
+
+
+});
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -27,6 +44,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+io.on('connection', function(socket) {
+    console.log('New connection!');
+});
 
 app.use('/', index);
 app.use('/users', users);
