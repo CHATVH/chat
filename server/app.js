@@ -4,13 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 
-
-// crypto-js modules
-var AES = require("crypto-js/aes");
-var SHA256 = require("crypto-js/sha256");
 //
+var db = mongoose.connect('mongodb://127.0.0.1:27017/server');
+mongoose.Promise = Promise;
 
 var index = require('./routes/index');
 var chat = require('./routes/chat');
@@ -23,16 +24,11 @@ var io = require('socket.io')(server);
 server.listen(4200);
 
 io.on('connection', function(client) {
-  console.log(client)
     client.on('message', function (data) {
         client.broadcast.emit('getMessage',data); //сообщение всем кроме отправителя
         client.emit('getMessage',data); //сообщение только отправителю
   });
-
-
-
 });
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,6 +41,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    secret: 'ffdbdfbcvbcvbxcbxcvbr5432oo',
+    store: new MongoStore({
+        url: 'mongodb://127.0.0.1:27017/server',
+        cookie: {
+            cookie: {maxAge: 1000 * 60}
+        }
+    })
+}));
 
 
 io.on('connection', function(socket) {

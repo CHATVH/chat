@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>CHAT</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+  <script src="https://travistidwell.com/jsencrypt/bin/jsencrypt.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <link rel="stylesheet" href="stylesheets/index.css">
 </head>
 <body>
@@ -19,25 +21,24 @@
       <div class="content_signin">
         <input  class="signin_input login" name="login" placeholder="ЛОГИН">
         <input  class="signin_input password" name="password" placeholder="КЛЮЧ">
-        <button type="submit" class="button button_signin" name="button_signin">ВОЙТИ</button>
+        <button type="button" class="button button_signin" name="button_signin">ВОЙТИ</button>
       </div>
     </form>
   </div>
-
   <div class="form_reg">
-    <form class="form" method="get" action='chat'>
+    <form class="form" method="get" >
       <div class="header_reg">
         <p class="labels reg_label">РЕГИСТРАЦИЯ</p>
       </div>
       <div class="content_reg">
-        <input  class="signin_input reg name" name="name" placeholder="ИМЯ И ФАМИЛИЯ">
         <input  class="signin_input reg new_login" name="new_login" placeholder="ЛОГИН">
         <input  class="signin_input reg email" name="email" placeholder="ЭЛ.ПОЧТА">
-        <button type="submit" class="button button_reg" name="login">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <input  class="signin_input reg password_reg" name="password_reg" placeholder="ПАРОЛЬ">
+        <button type="button" class="button button_reg" name="login">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       </div>
     </form>
   </div>
 </div>
-<script src="javascripts/main.js"></script>
+<script src="javascripts/index.js"></script>
 </body>
 </html>

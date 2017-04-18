@@ -1,3 +1,5 @@
+@font_style : "Arial Narrow", Arial;
+
 body {
     margin: 0px;
     padding: 0px;
@@ -84,11 +86,13 @@ body {
 
 .chat_inpute_message {
     padding-top: 10px;
+    padding-right: 38px;
     float: left;
     resize: none;
     margin: 0px 34px 26px 38px;
     height: 484px;
-    width: 634px;
+    width: 596px;
+    word-wrap: break-word;
 }
 
 .users_tab {
