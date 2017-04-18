@@ -1,5 +1,3 @@
-@font_style : "Arial Narrow", Arial;
-
 body {
     margin: 0px;
     padding: 0px;
@@ -93,6 +91,7 @@ body {
     height: 484px;
     width: 596px;
     word-wrap: break-word;
+    overflow:auto;
 }
 
 .users_tab {
