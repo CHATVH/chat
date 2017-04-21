@@ -51,7 +51,6 @@ app.use(session({
     })
 }));
 
-
 io.on('connection', function(socket) {
     console.log('New connection!');
 });

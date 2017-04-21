@@ -6,11 +6,6 @@ var new_password = document.querySelectorAll('.password_reg')[0];
 var login = document.querySelectorAll('.login')[0];
 var password = document.querySelectorAll('.password')[0];
 
-var login_signin = login.text;
-
-
-
-
 //Создание события по нажатию на кнопку
 btn_reg.addEventListener('click',function() {
     if (new_password.value != '' & new_login.value != '' & new_email.value != '') {
@@ -32,7 +27,6 @@ btn_reg.addEventListener('click',function() {
         window.localStorage.setItem('email', new_email.value);
         window.localStorage.setItem('password', new_password.value);
         alert('Вы успешно зарегистрировались!');
-
         xhr.open('POST', '/users', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(data));
@@ -44,11 +38,30 @@ btn_reg.addEventListener('click',function() {
 });
 
 btn_signin.addEventListener('click',function() {
-    db.getCollection('users').findOne({
-
-    });
     if (login.value != '' & password.value != '') {
-        alert('Здравствуйте!');
+         var data = {
+             login: login.value,
+             password: password.value
+         };
+         var xhr = new XMLHttpRequest();
+         xhr.open('POST', '/users/login', true);
+         xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                console.log(JSON.parse(xhr.responseText));
+            };
+        };
+         xhr.send(JSON.stringify(data));
+         // if (data.login == login.value){
+         //     document.location.href='chat';
+         // }
+         // else
+         //     alert('Неправильно введены логин/пароль');
+        console.log(data.login);
+        console.log(data.password);
+        // console.log(login);
+        // console.log(password);
     }
     else
         alert('Поля не заполнены!');
