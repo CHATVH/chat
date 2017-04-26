@@ -6,14 +6,35 @@ var new_password = document.querySelectorAll('.password_reg')[0];
 var login = document.querySelectorAll('.login')[0];
 var password = document.querySelectorAll('.password')[0];
 
+
+var input_file = document.querySelectorAll('.file')[0];
+
+input_file.addEventListener('change', function(e){
+    var file = e.target.files[0];
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        var text = reader.result;
+        if(text.indexOf('BEGIN RSA PRIVATE KEY') !== -1){
+            sessionStorage.setItem('privateKey', reader.result)
+        }else {
+
+        }
+    };
+    reader.readAsText(file);
+
+})
+
+
 //Создание события по нажатию на кнопку
 btn_reg.addEventListener('click',function() {
-    if (new_password.value != '' & new_login.value != '' & new_email.value != '') {
+    if (new_password.value !== '' && new_login.value !== '' && new_email.value !== '') {
         var crypt = new JSEncrypt();
         crypt.getKey();
         var keyPublic = crypt.getPublicKey();
         var keyPrivate = crypt.getPrivateKey();
-
+        var file = new File([keyPrivate], "privateKey.key", {type: "text/plain;charset=utf-8"});
         var data = {
             public_key: keyPublic,
             login: new_login.value,
@@ -22,46 +43,39 @@ btn_reg.addEventListener('click',function() {
         };
 
         var xhr = new XMLHttpRequest();
-        window.localStorage.setItem('keyPrivate', keyPrivate);
-        window.localStorage.setItem('login', new_login.value);
-        window.localStorage.setItem('email', new_email.value);
-        window.localStorage.setItem('password', new_password.value);
-        alert('Вы успешно зарегистрировались!');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                saveAs(file);
+                window.sessionStorage.setItem('keyPrivate', keyPrivate);
+                document.location.href = 'chat';
+            }
+        };
+
         xhr.open('POST', '/users', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(data));
-
-        document.location.href='chat';
     }
     else
         alert('Поля не заполнены!');
 });
 
 btn_signin.addEventListener('click',function() {
-    if (login.value != '' & password.value != '') {
-         var data = {
-             login: login.value,
-             password: password.value
-         };
+    var data = {
+        login: login.value,
+        password: password.value
+    };
+    if (data.login !== '' && data.password !== '' && !!sessionStorage.getItem('privateKey')) {
          var xhr = new XMLHttpRequest();
          xhr.open('POST', '/users/login', true);
          xhr.setRequestHeader('Content-Type', 'application/json');
 
         xhr.onreadystatechange = function () {
             if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                console.log(JSON.parse(xhr.responseText));
+                window.location.href = "/chat";
             };
         };
-         xhr.send(JSON.stringify(data));
-         // if (data.login == login.value){
-         //     document.location.href='chat';
-         // }
-         // else
-         //     alert('Неправильно введены логин/пароль');
-        console.log(data.login);
-        console.log(data.password);
-        // console.log(login);
-        // console.log(password);
+        xhr.send(JSON.stringify(data));
+
     }
     else
         alert('Поля не заполнены!');

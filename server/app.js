@@ -9,7 +9,6 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 
-//
 var db = mongoose.connect('mongodb://127.0.0.1:27017/server');
 mongoose.Promise = Promise;
 
@@ -29,6 +28,7 @@ io.on('connection', function(client) {
         client.emit('getMessage',data); //сообщение только отправителю
   });
 });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,9 +51,6 @@ app.use(session({
     })
 }));
 
-io.on('connection', function(socket) {
-    console.log('New connection!');
-});
 
 app.use('/', index);
 app.use('/users', users);
