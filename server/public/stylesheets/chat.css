@@ -6,19 +6,20 @@ body {
     font-family: "Arial Narrow", Arial;
 }
 
-.FAQ{
-    float: right;
-    margin: 0px;
-    margin-top: 7px;
-    margin-right: 38px;
-    font-size: 24px;
-    color: #6baea8;
-    text-decoration: none;
-}
+/*.FAQ{*/
+    /*float: right;*/
+    /*margin: 0px;*/
+    /*margin-top: 7px;*/
+    /*margin-right: 38px;*/
+    /*font-size: 24px;*/
+    /*color: #6baea8;*/
+    /*text-decoration: none;*/
+/*}*/
 
 .header {
     background-color: #12121a;
     height: 63px;
+    width: auto;
     opacity: 0.7;
     margin-bottom: 35px;
 }
@@ -175,4 +176,8 @@ li:before {
 
 .button_exit {
     float: right;
+}
+
+::-webkit-input-placeholder {
+    color: #353535;
 }

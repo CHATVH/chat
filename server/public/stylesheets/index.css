@@ -7,15 +7,15 @@ body{
     font-family: "Arial Narrow", Arial;
 }
 
-.FAQ{
-    float: right;
-    margin: 0px;
-    margin-top: 7px;
-    margin-right: 38px;
-    font-size: 24px;
-    color: #6baea8;
-    text-decoration: none;
-}
+/*.FAQ{*/
+    /*float: right;*/
+    /*margin: 0px;*/
+    /*margin-top: 7px;*/
+    /*margin-right: 38px;*/
+    /*font-size: 24px;*/
+    /*color: #6baea8;*/
+    /*text-decoration: none;*/
+/*}*/
 
 .header {
     background-color: #12121a;
@@ -38,11 +38,11 @@ body{
     margin-bottom: 36px;
 }
 
-.signin{
+.signin {
     margin-right: 273px;
     float: right;
     width: 406px;
-    height:650px;
+    height: 716px;
 }
 
 .header_signin, .header_reg {
@@ -63,7 +63,7 @@ body{
 .content_signin {
     padding: 33px 30px 0;
     box-sizing: border-box;
-    height: 180px;
+    height: 247px;
     opacity: 0.7;
     background-color: #12121a;
     border-bottom-left-radius: 10px;
@@ -103,13 +103,14 @@ body{
 }
 
 .password {
-    width: 218px;
+    margin-bottom: 33px;
 }
 
 .button_signin {
     text-align: center;
-    width: 102px;
-    margin-left: 4px;
+    float: right;
+    width: 104px;
+    margin-right: 4px;
 }
 
 .button:hover{
@@ -135,3 +136,14 @@ body{
     text-align: center;
     width: 342px;
 }
+
+.file{
+    max-width: 218px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+}
+
+::-webkit-input-placeholder {
+    color: #3d3d3d;
+}
+

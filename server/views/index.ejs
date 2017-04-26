@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>CHAT</title>
+
+  <link rel="stylesheet" href="stylesheets/index.css">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
   <script src="https://travistidwell.com/jsencrypt/bin/jsencrypt.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-  <link rel="stylesheet" href="stylesheets/index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+  <script src="javascripts/FileSaver.min.js"></script>
 </head>
 <body>
 <div class="header">
-  <p id="header_label">CHAT<a class="FAQ" href="/">FAQ</a></p>
+  <p id="header_label">CHAT</p>
 </div>
 <div class="signin">
   <div class="form_signin">
@@ -20,7 +24,8 @@
       </div>
       <div class="content_signin">
         <input  class="signin_input login" name="login" placeholder="ЛОГИН">
-        <input  class="signin_input password" name="password" placeholder="КЛЮЧ">
+        <input type="password"  class="signin_input password" name="password" placeholder="ПАРОЛЬ">
+        <input  class="file" type="file" name="file">
         <button type="button" class="button button_signin" name="button_signin">ВОЙТИ</button>
       </div>
     </form>
@@ -33,7 +38,7 @@
       <div class="content_reg">
         <input  class="signin_input reg new_login" name="new_login" placeholder="ЛОГИН">
         <input  class="signin_input reg email" name="email" placeholder="ЭЛ.ПОЧТА">
-        <input  class="signin_input reg password_reg" name="password_reg" placeholder="ПАРОЛЬ">
+        <input  type="password"  class="signin_input reg password_reg" name="password_reg" placeholder="ПАРОЛЬ">
         <button type="button" class="button button_reg" name="login">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       </div>
     </form>
