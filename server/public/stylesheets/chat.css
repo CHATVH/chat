@@ -1,6 +1,7 @@
 body {
-    margin: 0px;
-    padding: 0px;
+    min-width: 1000px;
+    margin: 0;
+    padding: 0;
     background-attachment: fixed;
     background: url(../images/bg.jpg);
     font-family: "Arial Narrow", Arial;
@@ -19,7 +20,6 @@ body {
 .header {
     background-color: #12121a;
     height: 63px;
-    width: auto;
     opacity: 0.7;
     margin-bottom: 35px;
 }
@@ -27,7 +27,7 @@ body {
 #header_label {
     text-align: center;
     font-family: "Arial Narrow", Arial;
-    margin:0px;
+    margin:0;
     padding-top: 10px;
     font-size: 36px;
     color: #6baea8;
@@ -51,24 +51,24 @@ body {
 
 .header_chat_username {
     display: inline-block;
-    margin: 0px;
+    margin: 0;
     width: 300px;
 }
 
 .header_chat_exit {
     display: inline-block;
-    margin: 0px;
+    margin: 0;
     width: 40px;
     height: 39px;
-    padding: 4px 38px 0px 0px;
-    margin-right: 0px;
+    padding: 4px 38px 0 0;
+    margin-right: 0;
     float: right;
 }
 
 #chat_user {
     text-align: left;
-    margin: 0px;
-    padding: 13px 0px 13px 37px;
+    margin: 0;
+    padding: 13px 0 13px 37px;
     color: #6baea8;
     font-size: 21px;
 }
@@ -88,7 +88,7 @@ body {
     padding-right: 38px;
     float: left;
     resize: none;
-    margin: 0px 34px 26px 38px;
+    margin: 0 34px 26px 38px;
     height: 484px;
     width: 596px;
     word-wrap: break-word;
@@ -97,7 +97,7 @@ body {
 
 .users_tab {
     float: right;
-    margin: 0px 38px 38px 0px;
+    margin: 0 38px 38px 0;
     height: 558px;
     width: 206px;
 }
@@ -105,7 +105,7 @@ body {
 .input_message {
     float: left;
     padding-left: 10px;
-    margin: 0px 18px 38px 38px;
+    margin: 0 18px 38px 38px;
     width: 462px;
     height: 32px;
 }

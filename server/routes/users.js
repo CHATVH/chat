@@ -42,7 +42,7 @@ function cryptPassword(password, callback) {
         });
 
     });
-};
+}
 
 function comparePassword(password, userPassword, callback) {
     bcrypt.compare(password, userPassword, function(err, isPasswordMatch) {
@@ -50,7 +50,7 @@ function comparePassword(password, userPassword, callback) {
             return callback(err);
         return callback(null, isPasswordMatch);
     });
-};
+}
 
 
 module.exports = router;
