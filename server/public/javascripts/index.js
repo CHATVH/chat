@@ -5,23 +5,16 @@ var new_email = document.querySelectorAll('.email')[0];
 var new_password = document.querySelectorAll('.password_reg')[0];
 var login = document.querySelectorAll('.login')[0];
 var password = document.querySelectorAll('.password')[0];
-
-
 var input_file = document.querySelectorAll('.file')[0];
 
 input_file.addEventListener('change', function(e){
     var file = e.target.files[0];
 
     var reader = new FileReader();
-
     reader.onload = function(e) {
         var text = reader.result;
-        if(text.indexOf('BEGIN RSA PRIVATE KEY') !== -1){
-            sessionStorage.setItem('privateKey', reader.result)
-        }
-        else {
-            alert('Выбран неверный формат файла');
-        }
+        if(text.indexOf('BEGIN RSA PRIVATE KEY') !== -1) sessionStorage.setItem('privateKey', reader.result);
+        else alert('Выбран неверный формат файла');
     };
     reader.readAsText(file);
 });
@@ -31,7 +24,7 @@ var reg_login = document.getElementById('reg_login');
 var reg_password = document.getElementById('reg_password');
 var reg_email = document.getElementById('reg_email');
 
-//Создание события по нажатию на кнопку
+//Кнопка "Зарегистрироваться"
 btn_reg.addEventListener('click',function() {
     if (new_password.value !== '' && new_login.value !== '' && new_email.value !== '') {
         var crypt = new JSEncrypt();
@@ -71,6 +64,7 @@ btn_reg.addEventListener('click',function() {
 var sn_login = document.getElementById('sn_login');
 var sn_password = document.getElementById('sn_password');
 
+//Кнопка "ВХОД"
 btn_signin.addEventListener('click',function() {
     var data = {
         login: login.value,
