@@ -8,7 +8,7 @@ var name_label = document.querySelectorAll('#chat_user')[0];
 //Создание события по нажатию на кнопку
 btn.addEventListener('click', function(){
     socket.emit('message', {
-        name: 'USER_1',
+        name: 'USER_NAME',
         text: input.value
     });
 });
@@ -56,41 +56,42 @@ socket.on('getMessage', function (data) {
             var decryptedFile = CryptoJS.Rabbit.decrypt(
                 encFileWordArray, simKey);
         console.log("Расшифрованный текст: " + decryptedFile.toString(CryptoJS.enc.Utf8));
+
+
+        var keyPublic2 = crypt.getPublicKey();
+        var keyPrivate2 = crypt.getPrivateKey();
+
+        //Расшифровка ассиметричного ключа юзером 1
+        var rsaDecrypt = new JSEncrypt();
+        rsaDecrypt.setPrivateKey(keyPrivate);
+        simKey = rsaDecrypt.decrypt(encryptSimKey);
+        console.log("Симметричный расшифрованный ключ: " + simKey);
+
+        //2рой юзер отправляет первому свой publickey
+        console.log("PublicKey 2-рого юзера" + keyPublic2);
+
+        //1-ый шифрует с помощью этого ключа свой simKey
+        //Шифрование симметричного ключа публичным ключом 2-рого юзера
+        var rsaEncrypt = new JSEncrypt();
+        var encryptSimKey = "";
+        rsaEncrypt.setPublicKey(keyPublic2);
+        encryptSimKey = rsaEncrypt.encrypt(simKey);
+        console.log("Ассиметричный ключ (зашифрованный пуб.ключом 2-рого юзера: " + encryptSimKey);
+
+        //Передача зашифрованного simKey 2-рому юзеру.
+
+        //действия второго юзера
+        //Расшифровка ассиметричного ключа от первого юзера
+        var rsaDecrypt = new JSEncrypt();
+        rsaDecrypt.setPrivateKey(keyPrivate2);
+        simKey = rsaDecrypt.decrypt(encryptSimKey);
+        console.log("Симметричный расшифрованный ключ: " + simKey);
+
+        //Расшифровка сообщения
+        var decryptedFile = CryptoJS.Rabbit.decrypt(
+            encFileWordArray, simKey);
+        console.log("Расшифрованный текста 2-рым юзером: " + decryptedFile.toString(CryptoJS.enc.Utf8));
+        console.log("-------------------------------------------");
+        console.log("-------------------------------------------");
     }
-
-    var keyPublic2 = crypt.getPublicKey();
-    var keyPrivate2 = crypt.getPrivateKey();
-
-    //Расшифровка ассиметричного ключа юзером 1
-    var rsaDecrypt = new JSEncrypt();
-    rsaDecrypt.setPrivateKey(keyPrivate);
-    simKey = rsaDecrypt.decrypt(encryptSimKey);
-    console.log("Симметричный расшифрованный ключ: " + simKey);
-
-    //2рой юзер отправляет первому свой publickey
-    console.log("PublicKey 2-рого юзера" + keyPublic2);
-
-    //1-ый шифрует с помощью этого ключа свой simKey
-    //Шифрование симметричного ключа публичным ключом 2-рого юзера
-    var rsaEncrypt = new JSEncrypt();
-    var encryptSimKey = "";
-    rsaEncrypt.setPublicKey(keyPublic2);
-    encryptSimKey = rsaEncrypt.encrypt(simKey);
-    console.log("Ассиметричный ключ (зашифрованный пуб.ключом 2-рого юзера: " + encryptSimKey);
-
-    //Передача зашифрованного simKey 2-рому юзеру.
-
-    //действия второго юзера
-    //Расшифровка ассиметричного ключа от первого юзера
-    var rsaDecrypt = new JSEncrypt();
-    rsaDecrypt.setPrivateKey(keyPrivate2);
-    simKey = rsaDecrypt.decrypt(encryptSimKey);
-    console.log("Симметричный расшифрованный ключ: " + simKey);
-
-    //Расшифровка сообщения
-    var decryptedFile = CryptoJS.Rabbit.decrypt(
-        encFileWordArray, simKey);
-    console.log("Расшифрованный текста 2-рым юзером: " + decryptedFile.toString(CryptoJS.enc.Utf8));
-    console.log("-------------------------------------------");
-    console.log("-------------------------------------------");
 });
