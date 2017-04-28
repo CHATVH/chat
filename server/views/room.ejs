@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>CHAT</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script src="https://travistidwell.com/jsencrypt/bin/jsencrypt.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/rabbit.js"></script>
+</head>
+<body>
+<div class="header">
+    <p id="header_label">CHAT</p>
+</div>
+<div class="chat">
+    <div class="form_chat">
+        <form class="form_header_chat">
+            <div class="header_chat">
+                <div class="header_chat_username"><p id="chat_user">USER_1</p></div>
+                <div class="header_chat_exit"><a href='/'><img class="button_exit" src="images/bn_exit.png"></a></div>
+            </div>
+        <div class="content_chat">
+            <ul class="border_style chat_inpute_message" readonly></ul>
+            <div class="border_style users_tab">
+                <ul>
+                    <li><span>USER_1</span></li>
+                    <li><span>USER_2</span></li>
+                </ul>
+            </div>
+            <!--<input class="border_style input_message" maxlength="1000" placeholder="Сообщение...">
+            <button type="button" class="button button_send">ОТПРАВИТЬ</button>-->
+        </div>
+        </form>
+    </div>
+</div>
+<script src="javascripts/main.js"></script>
+</body>
+</html>

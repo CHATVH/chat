@@ -7,7 +7,7 @@ var login = document.querySelectorAll('.login')[0];
 var password = document.querySelectorAll('.password')[0];
 var input_file = document.querySelectorAll('.file')[0];
 
-input_file.addEventListener('change', function(e){
+/*input_file.addEventListener('change', function(e){
     var file = e.target.files[0];
 
     var reader = new FileReader();
@@ -17,7 +17,7 @@ input_file.addEventListener('change', function(e){
         else alert('Выбран неверный формат файла');
     };
     reader.readAsText(file);
-});
+});*/
 
 var reg_login = document.getElementById('reg_login');
 var reg_password = document.getElementById('reg_password');
@@ -69,7 +69,7 @@ btn_signin.addEventListener('click',function() {
         login: login.value,
         password: password.value
     };
-    if (data.login !== '' && data.password !== '' && !!sessionStorage.getItem('privateKey')) {
+    if (data.login !== '' && data.password !== '') {
          var xhr = new XMLHttpRequest();
          xhr.open('POST', '/users/login', true);
          xhr.setRequestHeader('Content-Type', 'application/json');

@@ -8,6 +8,12 @@
     <script src="https://travistidwell.com/jsencrypt/bin/jsencrypt.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/rabbit.js"></script>
+    <script src="javascripts/handlebars.js"></script>
+
+    <script>
+        var name = '<%= name %>';
+    </script>
+
 </head>
 <body>
 <div class="header">
@@ -15,25 +21,40 @@
 </div>
 <div class="chat">
     <div class="form_chat">
-        <form class="form_header_chat">
-            <div class="header_chat">
-                <div class="header_chat_username"><p id="chat_user">USER_1</p></div>
-                <div class="header_chat_exit"><a href='/'><img class="button_exit" src="images/bn_exit.png"></a></div>
-            </div>
-        <div class="content_chat">
-            <ul class="border_style chat_inpute_message" readonly></ul>
-            <div class="border_style users_tab">
-                <ul>
-                    <li><span>USER_1</span></li>
-                    <li><span>USER_2</span></li>
-                </ul>
-            </div>
+        <div><%= name %></div>
+        <div class="my_private_room">
+            <h1>Your private rooms:</h1>
+            <ul>
+
+            </ul>
+            <button class="create_new_room">Create new room</button>
+        </div>
+
+
+
+
+        <div class="b-common_chat">
+            <ul class="common_chat">
+
+            </ul>
             <input class="border_style input_message" maxlength="1000" placeholder="Сообщение...">
             <button type="button" class="button button_send">ОТПРАВИТЬ</button>
         </div>
-        </form>
+
+
+
     </div>
 </div>
-<script src="javascripts/main.js"></script>
+
+
+<script id="template_common_chat" type="text/x-handlebars-template">
+    <li class="common_chat__item">
+        <span class="common_chat__name">{{author}}</span>
+        <span class="common_chat__time">{{time}}</span>
+        <span class="common_chat__text">{{text}}</span>
+    </li>
+</script>
+
+<script src="javascripts/chat.js"></script>
 </body>
 </html>

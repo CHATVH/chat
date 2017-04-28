@@ -3,8 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session)
-  res.render('index', { title: 'Главная' });
+
+  if(req.session.user){
+	  return res.redirect('chat', {name: req.session.user.login})
+  } else {
+	  res.render('index');
+  }
 });
 
 module.exports = router;

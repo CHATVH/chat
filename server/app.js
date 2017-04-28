@@ -22,11 +22,26 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 server.listen(4200);
 
+
+
+
+var Message = require('./models/message');
+
 io.on('connection', function(client) {
     client.on('message', function (data) {
-        client.broadcast.emit('getMessage',data); //сообщение всем кроме отправителя
-        client.emit('getMessage',data); //сообщение только отправителю
-  });
+		var message = new Message(data);
+
+		message.save()
+			.then(data => {
+				client.broadcast.emit('getMessage',data); //сообщение всем кроме отправителя
+				client.emit('getMessage',data); //сообщение только отправителю
+
+			})
+			.catch(err => {
+				console.log('err saved message');
+			    console.log(err);
+			});
+    });
 });
 
 
@@ -45,10 +60,11 @@ app.use(session({
     secret: 'ffdbdfbcvbcvbxcbxcvbr5432oo',
     store: new MongoStore({
         url: 'mongodb://127.0.0.1:27017/server',
-        cookie: {
-            cookie: {maxAge: 1000 * 60}
-        }
-    })
+    }),
+	cookie:{
+		expires: new Date(Date.now() + 600 * 1000),
+		//maxAge: 1000
+	}
 }));
 
 
