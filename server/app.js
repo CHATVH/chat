@@ -27,7 +27,6 @@ var Message = require('./models/message');
 io.on('connection', function(client) {
     client.on('message', function (data) {
 		var message = new Message(data);
-
 		message.save()
 			.then(data => {
 				client.broadcast.emit('getMessage',data); //сообщение всем кроме отправителя

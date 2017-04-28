@@ -7,16 +7,6 @@ body {
     font-family: "Arial Narrow", Arial;
 }
 
-/*.FAQ{*/
-    /*float: right;*/
-    /*margin: 0px;*/
-    /*margin-top: 7px;*/
-    /*margin-right: 38px;*/
-    /*font-size: 24px;*/
-    /*color: #6baea8;*/
-    /*text-decoration: none;*/
-/*}*/
-
 .header {
     background-color: #12121a;
     height: 63px;
@@ -80,29 +70,29 @@ body {
     height: 426px;
     opacity: 0.7;
     background-color: #12121a;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    margin-bottom: 4px;
 }
 
 .content_rooms {
-    color: #507c7b;
     text-align: center;
-    padding: 40px 0 3px 0;
+    padding: 1px 0 3px 0;
     margin-bottom: 4px;
     box-sizing: border-box;
     height: 226px;
     opacity: 0.7;
     background-color: #12121a;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .chat_inpute_message {
     padding-top: 10px;
-    padding-right: 38px;
+    padding-right: 26px;
     float: left;
     resize: none;
-    margin: -10px 34px 26px 38px;
+    margin: -10px 34px 26px 39px;
     height: 284px;
-    width: 583px;
+    width: 594px;
     word-wrap: break-word;
     overflow: auto;
 }
@@ -130,14 +120,18 @@ body {
     border-radius: 5px;
     border: 0;
     cursor: pointer;
+    background-color: rgb(14, 110, 105);
+    text-align: center;
+    font-size: 18px;
+    font-family: "Arial Narrow", Arial;
+}
+
+.button_create_room {
+    width: 160px;
 }
 
 .button_send {
-    text-align: center;
-    font-size: 18px;
     width: 185px;
-    background-color: rgb(14, 110, 105);
-    font-family: "Arial Narrow", Arial;
 }
 
 .button:hover{
@@ -161,18 +155,18 @@ li span {
     color: #74c6bf;
 }
 
-li:before {
-    content: '';
-    background-color: green;
-    width: 10px;
-    height: 10px;
-    display: block;
-    border-radius: 50%;
-    position: absolute;
-    left: -23px;
-    top: 50%;
-    margin-top: -10px;
-}
+/*li:before {*/
+    /*content: '';*/
+    /*background-color: green;*/
+    /*width: 10px;*/
+    /*height: 10px;*/
+    /*display: block;*/
+    /*border-radius: 50%;*/
+    /*position: absolute;*/
+    /*left: -23px;*/
+    /*top: 50%;*/
+    /*margin-top: -10px;*/
+/*}*/
 
 .border_style {
     outline: none;
@@ -195,4 +189,16 @@ li:before {
 
 ::-webkit-input-placeholder {
     color: #353535;
+}
+
+.common_chat__name {
+    color: #043242;
+}
+
+.common_chat__time {
+    color: #043242;
+}
+
+.common_chat__text {
+
 }

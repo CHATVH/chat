@@ -6,6 +6,7 @@ var common_chat_list = document.querySelectorAll('.common_chat')[0];
 
 //Создание события по нажатию на кнопку
 btn.addEventListener('click', function(){
+
 	if(!input.value.length) return false;
 
 	socket.emit('message', {
