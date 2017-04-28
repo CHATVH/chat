@@ -47,6 +47,7 @@ body {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 4px;
+    height: 45px;
 }
 
 .header_chat_username {
@@ -74,13 +75,24 @@ body {
 }
 
 .content_chat {
-    padding: 38px 0 0 0;
+    padding: 40px 0 0 0;
     box-sizing: border-box;
-    height: 635px;
+    height: 426px;
     opacity: 0.7;
     background-color: #12121a;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.content_rooms {
+    color: #507c7b;
+    text-align: center;
+    padding: 40px 0 3px 0;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    height: 226px;
+    opacity: 0.7;
+    background-color: #12121a;
 }
 
 .chat_inpute_message {
@@ -88,25 +100,27 @@ body {
     padding-right: 38px;
     float: left;
     resize: none;
-    margin: 0 34px 26px 38px;
-    height: 484px;
-    width: 596px;
+    margin: -10px 34px 26px 38px;
+    height: 284px;
+    width: 583px;
     word-wrap: break-word;
-    overflow:auto;
+    overflow: auto;
 }
 
 .users_tab {
     float: right;
-    margin: 0 38px 38px 0;
-    height: 558px;
-    width: 206px;
+    margin: -10px 38px 38px 0px;
+    width: 181px;
+    height: 359px;
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 .input_message {
     float: left;
     padding-left: 10px;
-    margin: 0 18px 38px 38px;
-    width: 462px;
+    margin: 0px 18px 30px 38px;
+    width: 448px;
     height: 32px;
 }
 
@@ -167,6 +181,7 @@ li:before {
     background-color: rgb(14, 110, 105);
     border-radius: 5px;
     font-size: 18px;
+    resize: none;
 }
 
 .border_style:focus {

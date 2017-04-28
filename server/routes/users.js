@@ -10,6 +10,7 @@ router.post('/', function(req, res, next) {
         var user = new User(req.body);
         user.save()
             .then(data => {
+				req.session.user = {id: data._id, login: data.login};
                 res.send({status: 200});
             })
             .catch(err => {
@@ -21,9 +22,11 @@ router.post('/', function(req, res, next) {
 router.post('/login', function(req, res, next) {
      User.find({ login: req.body.login})
          .then(data => {
-             comparePassword(req.body.password, data[0].password, function(err, isMatch){
+             data = data[0];
+             comparePassword(req.body.password, data.password, function(err, isMatch){
                  if(isMatch) {
-                     res.send({success: true, text: "User not found"});
+                    req.session.user = {id: data._id, login: data.login};
+                    res.redirect('/chat');
                  }else {
                      res.send({success: false, text: "User not found"});
                  }
@@ -49,6 +52,5 @@ function comparePassword(password, userPassword, callback) {
         return callback(null, isPasswordMatch);
     });
 }
-
 
 module.exports = router;

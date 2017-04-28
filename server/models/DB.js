@@ -42,21 +42,6 @@ var Room = new Scheme({
     }
 });
 
-var Message = new Scheme({
-    room_id: {
-        type:String,
-        require:true
-    } ,
-    time : {
-        type: Date,
-        require:true
-    },
-    text: {
-        type:String,
-        require:true
-    } ,
-});
-
 var Session = new Scheme({
     token: {
         type:String,
@@ -69,7 +54,6 @@ var Session = new Scheme({
     },
 });
 
-// module.exports = mongoose.model("Message", Message);
 module.exports = mongoose.model("User", User);
 // module.exports = mongoose.model("Session", Session);
 // module.exports = mongoose.model("Room", Room);

@@ -3,7 +3,13 @@ var router = express.Router();
 
 /* GET chat page. */
 router.get('/', function(req, res, next) {
-    res.render('chat', { title: 'Чат' });
+
+    if(req.session.user) {
+		res.render('chat', {name: req.session.user.login});
+    }else {
+		res.redirect('/');
+    }
+
 });
 
 module.exports = router;
