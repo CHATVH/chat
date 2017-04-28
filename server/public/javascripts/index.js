@@ -19,7 +19,6 @@ input_file.addEventListener('change', function(e){
     reader.readAsText(file);
 });
 
-
 var reg_login = document.getElementById('reg_login');
 var reg_password = document.getElementById('reg_password');
 var reg_email = document.getElementById('reg_email');
@@ -44,7 +43,7 @@ btn_reg.addEventListener('click',function() {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 saveAs(file);
                 window.sessionStorage.setItem('keyPrivate', keyPrivate);
-                window.sessionStorage.setItem('login', login);
+                window.sessionStorage.setItem('login', reg_login.value);
                 document.location.href = 'chat';
             }
         };

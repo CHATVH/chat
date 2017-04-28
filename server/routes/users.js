@@ -15,7 +15,6 @@ router.post('/', function(req, res, next) {
             .catch(err => {
                 res.send({status: 500, text: "Can't connect to db"})
             });
-
     });
 });
 

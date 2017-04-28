@@ -4,6 +4,7 @@ var input = document.querySelectorAll('.input_message')[0];
 var btn = document.querySelectorAll('.button_send')[0];
 var name_label = document.querySelectorAll('#chat_user')[0];
 
+
 //Создание события по нажатию на кнопку
 btn.addEventListener('click', function(){
     socket.emit('message', {
@@ -90,4 +91,6 @@ socket.on('getMessage', function (data) {
     var decryptedFile = CryptoJS.Rabbit.decrypt(
         encFileWordArray, simKey);
     console.log("Расшифрованный текста 2-рым юзером: " + decryptedFile.toString(CryptoJS.enc.Utf8));
+    console.log("-------------------------------------------");
+    console.log("-------------------------------------------");
 });
