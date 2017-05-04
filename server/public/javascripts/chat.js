@@ -25,10 +25,8 @@ socket.on('getMessage', function (data) {
 });
 
 /*
-
 var context = {title: "My New Post", body: "This is my first post!"};
 var html    = template(context);
-
 */
 
 /*
