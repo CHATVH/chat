@@ -7,17 +7,6 @@ var login = document.querySelectorAll('.login')[0];
 var password = document.querySelectorAll('.password')[0];
 var input_file = document.querySelectorAll('.file')[0];
 
-/*input_file.addEventListener('change', function(e){
-    var file = e.target.files[0];
-
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        var text = reader.result;
-        if(text.indexOf('BEGIN RSA PRIVATE KEY') !== -1) sessionStorage.setItem('privateKey', reader.result);
-        else alert('Выбран неверный формат файла');
-    };
-    reader.readAsText(file);
-});*/
 
 var reg_login = document.getElementById('reg_login');
 var reg_password = document.getElementById('reg_password');
@@ -33,24 +22,24 @@ btn_reg.addEventListener('click',function() {
         var file = new File([keyPrivate], "privateKey.key", {type: "text/plain;charset=utf-8"});
         var data = {
             public_key: keyPublic,
-            login: new_login.value,
+            username: new_login.value,
             email: new_email.value,
             password: new_password.value
         };
 
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+
+        function callback(data){
+            if(data.success === true) {
                 saveAs(file);
                 window.sessionStorage.setItem('keyPrivate', keyPrivate);
                 window.sessionStorage.setItem('login', reg_login.value);
                 document.location.href = 'chat';
+            }else {
+                //вывод ошибки data.text
             }
-        };
+        }
 
-        xhr.open('POST', '/users', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(data));
+        var api = new API('POST', '/api/registration', data, callback);
     }
     else {
         if (new_password.value == '') reg_password.classList.add('input_error'); else reg_password.classList.remove('input_error');
@@ -66,20 +55,20 @@ var sn_password = document.getElementById('sn_password');
 //Кнопка "ВХОД"
 btn_signin.addEventListener('click',function() {
     var data = {
-        login: login.value,
+        username: login.value,
         password: password.value
     };
     if (data.login !== '' && data.password !== '') {
-         var xhr = new XMLHttpRequest();
-         xhr.open('POST', '/users/login', true);
-         xhr.setRequestHeader('Content-Type', 'application/json');
-
-        xhr.onreadystatechange = function () {
-            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        function callback(data){
+            if(data.success === true) {
                 window.location.href = "/chat";
+            }else {
+                //вывод ошибки data.text
             }
-        };
-        xhr.send(JSON.stringify(data));
+        }
+
+        var api = new API('POST', '/api/login', data, callback);
+
     }
     else {
         if (password.value == '') sn_password.classList.add('input_error'); else sn_password.classList.remove('input_error');

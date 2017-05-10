@@ -1,13 +1,6 @@
-var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    if(req.session.user){
-        return res.redirect('chat', {name: req.session.user.login})
-    } else {
-        res.render('index');
-    }
-});
+router.use('/api', require('./api/index'));
+router.use('/', require('./pages/index'));
 
 module.exports = router;
