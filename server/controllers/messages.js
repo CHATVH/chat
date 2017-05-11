@@ -25,5 +25,14 @@ module.exports = function(io) {
                     console.log(err);
                 });
         });
+
+        client.on('messageEncrypted', function (data) {
+            new Message(data).save()
+                .then(data => io.sockets.emit('getMessageEncrypted', data))
+                .catch(err => {
+                    console.log('err saved encrypt message');
+                    console.log(err);
+                });
+        });
     });
 };

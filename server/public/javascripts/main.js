@@ -44,6 +44,19 @@ socket.on('getMessage', function (data) {
         console.log("Расшифрованный текст: " + decryptedFile.toString(CryptoJS.enc.Utf8));
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         var keyPublic2 = crypt.getPublicKey();
         var keyPrivate2 = crypt.getPrivateKey();
 

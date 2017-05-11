@@ -2,6 +2,7 @@ var router = require('express').Router();
 var bcrypt = require('bcrypt');
 
 var User = require('../../models/user');
+var Room = require('../../models/room');
 
 
 router.post('/login', (req, res, next) => {
@@ -11,7 +12,11 @@ router.post('/login', (req, res, next) => {
                 data = data[0];
                 comparePassword(req.body.password, data.password, function (err, isMatch) {
                     if (isMatch) {
-                        req.session.user = {id: data._id, username: data.username};
+                        req.session.user = {
+                            id: data._id,
+                            username: data.username,
+                            public_key: data.public_key
+                        };
                         res.send({success: true, text: "Redirecting to chat page"})
                     } else {
                         res.send({success: false, text: "Wrong password"})
@@ -33,13 +38,16 @@ router.post('/logout', (req, res, next) => {
 });
 
 router.post('/registration', (req, res, next) => {
-
     cryptPassword(req.body.password, function(err, hash){
         req.body.password = hash;
         var user = new User(req.body);
         user.save()
             .then(data => {
-                req.session.user = {id: data._id, username: data.username};
+                req.session.user = {
+                    id: data._id,
+                    username: data.username,
+                    public_key: data.public_key
+                };
                 res.send({success: true, text: "User successfully created"});
             })
             .catch(err => {
@@ -53,10 +61,32 @@ router.post('/registration', (req, res, next) => {
                     default:
                         res.send({success: false, text: "Could not create user"});
                 }
-
             });
     });
 });
+
+router.post('/credentials', (req, res, next) => {
+    res.send({
+        success: true,
+        data: req.session.user
+    })
+});
+router.post('/credentialsRoom', (req, res, next) => {
+    Room.find({name: req.body.room_name})
+        .then(data => {
+            var profile = {
+                room: data[0],
+                user: req.session.user
+            };
+            res.send({success: true, data: profile})
+        })
+        .catch(err => {
+            console.log('===ERROR CREDENTIALSROOM===');
+            console.log(err);
+            res.send({success: false, text: "Can't found room"})
+        });
+});
+
 
 
 function cryptPassword(password, callback) {
