@@ -21,7 +21,7 @@ function callback(response){
     btn.addEventListener('click', function(){
         if(!input.value.length) return false;
         socket.emit('message', {
-            author: name,
+            author: profile.username,
             text: input.value
         });
         input.value = '';
@@ -48,6 +48,9 @@ function callback(response){
     });
     socket.on('createdRoom', function(data){
         renderRoomList(data.name);
+    });
+    socket.on('initRooms', function(data){
+        data.forEach(item => renderRoomList(item));
     });
 
     function renderMessages(data){
