@@ -36,6 +36,7 @@ function callback(response){
 
         socket.emit('creatingRoom', {
             owner_id: profile.id,
+            user_id: profile.id,
             pass_phrase: pass_phrase,
             name: name_create_new_room.value
         });

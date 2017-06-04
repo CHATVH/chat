@@ -74,6 +74,7 @@ router.post('/credentials', (req, res, next) => {
         data: req.session.user
     })
 });
+
 router.post('/credentialsRoom', (req, res, next) => {
     Room.find({name: req.body.room_name})
         .then(data => {
@@ -88,6 +89,40 @@ router.post('/credentialsRoom', (req, res, next) => {
             console.log(err);
             res.send({success: false, text: "Can't found room"})
         });
+});
+
+router.post('/profile', (req, res, next) => {
+  User.find({ username: req.body.username})
+    .then(data => {
+
+      res.send({
+        success: true,
+        data: data[0].public_key
+      });
+      console.log(data);
+    })
+    .catch(err => {
+      console.log('===ERROR GET PROFILE===');
+      console.log(err);
+      res.send({success: false, text: "Failed query"});
+    });
+});
+
+router.post('/invite', (req, res, next) => {
+  User.find({ username: req.body.username})
+    .then(data => {
+
+      res.send({
+        success: true,
+        data: data[0].public_key
+      });
+      console.log(data);
+    })
+    .catch(err => {
+      console.log('===ERROR GET PROFILE===');
+      console.log(err);
+      res.send({success: false, text: "Failed query"});
+    });
 });
 
 

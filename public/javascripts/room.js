@@ -1,12 +1,13 @@
 function callback(response){
     var profile = response.data;
 
-    console.log(profile);
-
     var socket = io.connect('http://localhost:4200', { query: "username="+ profile.username +"" });
 
     var btn = document.querySelectorAll('.button_send')[0];
+    var btn_invite = document.querySelectorAll('.button_invite')[0];
+
     var input = document.querySelectorAll('.input_message')[0];
+    var input_add_user = document.querySelectorAll('.add_users')[0];
 
     var message_list = document.querySelectorAll('.common_chat')[0];
     var users_list = document.querySelectorAll('.users')[0];
@@ -34,6 +35,32 @@ function callback(response){
         });
         input.value = '';
     });
+
+      btn_invite.addEventListener('click', function(){
+        if(!input_add_user.value.length) return false;
+
+        new API('POST', '/api/profile', {username: input_add_user.value}, function(data){
+            if(!data.success) return false;
+            var rsaDecrypt = new JSEncrypt();
+            var public_key_invite = data.public_key;
+
+            rsaDecrypt.setPrivateKey(sessionStorage.getItem('keyPrivate'));
+
+          var simKey = rsaDecrypt.decrypt(profile.room.pass_phrase);
+
+          var rsaEncryptInvite = new JSEncrypt();
+          rsaEncryptInvite.setPublicKey(public_key_invite);
+
+          var encryptSimKey = rsaEncrypt.encrypt(simKey);
+
+          new API('POST', '/api/invite', {username: input_add_user.value, pass_phrase: encryptSimKey}, function(data){
+
+          });
+        });
+
+        input.value = '';
+      });
+
 
     socket.on('getMessageEncrypted', function (data) {
         var rsaDecrypt = new JSEncrypt();

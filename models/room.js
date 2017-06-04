@@ -11,6 +11,10 @@ var Room = new Scheme({
         type: String,
         require:true
     } ,
+    user_id: {
+        type: String,
+        require:true
+    } ,
     pass_phrase: {
         type: String,
         require:true

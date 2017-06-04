@@ -4,21 +4,26 @@ var User = require('../models/user');
 module.exports = function(io) {
 
     io.on('connection', function(client) {
+        console.log('connection users');
         var userNames = [];
         for(var socket in io.sockets.sockets){
-            userNames.push(io.sockets.sockets[socket].handshake.query.username);
+            if(io.sockets.sockets[socket].handshake.query.username !== 'undefined') {
+              userNames.push(io.sockets.sockets[socket].handshake.query.username);
+            }
         }
+
+
         io.sockets.emit('initCommonUserList', userNames);
 
         User.find({ username: client.handshake.query.username})
             .then(users => {
                 let user = users[0];
-                return Room.find({owner_id: user._id})
+                return Room.find({user_id: user._id})
             })
             .then(data => {
                 let rooms = data.map(item => item.name);
                 client.emit('initRooms', rooms);
-            })
+            });
 
         client.on('creatingRoom', function(data){
             var room = new Room(data);
@@ -35,9 +40,13 @@ module.exports = function(io) {
         });
 
         client.on('disconnect', function(){
+            console.log('disconnect');
             userNames = [];
             for(var socket in io.sockets.sockets){
-                userNames.push(io.sockets.sockets[socket].handshake.query.username);
+                if(io.sockets.sockets[socket].handshake.query.username){
+                    console.log('111');
+                  userNames.push(io.sockets.sockets[socket].handshake.query.username);
+                };
             }
             io.sockets.emit('initCommonUserList', userNames);
         });
