@@ -94,10 +94,12 @@ router.post('/credentialsRoom', (req, res, next) => {
 router.post('/profile', (req, res, next) => {
   User.find({ username: req.body.username})
     .then(data => {
-
       res.send({
         success: true,
-        data: data[0].public_key
+        data: {
+          public_key: data[0].public_key,
+          user_id: data[0]._id
+        }
       });
       console.log(data);
     })
@@ -109,20 +111,34 @@ router.post('/profile', (req, res, next) => {
 });
 
 router.post('/invite', (req, res, next) => {
-  User.find({ username: req.body.username})
-    .then(data => {
 
-      res.send({
-        success: true,
-        data: data[0].public_key
+
+
+
+
+  Room.find({_id: req.body._id})
+    .then(data => {
+      var room = new Room({
+        owner_id: data[0].owner_id,
+        name: data[0].name,
+        pass_phrase: req.body.pass_phrase,
+        user_id: req.body.user_id
       });
-      console.log(data);
+
+      room.save()
+        .then(params => {
+          console.log(params);
+          res.send({
+            success: true
+          })
+        })
+        .catch(err => {
+          console.log('===ERROR INVITE===');
+          console.log(err);
+          res.send({success: false, text: "Failed query"});
+        });
     })
-    .catch(err => {
-      console.log('===ERROR GET PROFILE===');
-      console.log(err);
-      res.send({success: false, text: "Failed query"});
-    });
+
 });
 
 

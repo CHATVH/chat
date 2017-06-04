@@ -21,6 +21,7 @@ module.exports = function(io) {
                 return Room.find({user_id: user._id})
             })
             .then(data => {
+                console.log(data);
                 let rooms = data.map(item => item.name);
                 client.emit('initRooms', rooms);
             });
