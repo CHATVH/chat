@@ -1,0 +1,239 @@
+body {
+    min-width: 1000px;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background: url(../images/bg.jpg);
+    font-family: "Arial Narrow", Arial;
+}
+
+.header {
+    background-color: #12121a;
+    height: 63px;
+    opacity: 0.8;
+    margin-bottom: 35px;
+}
+
+#header_label {
+    text-align: center;
+    font-family: "Arial Narrow", Arial;
+    margin:0;
+    padding-top: 10px;
+    font-size: 36px;
+    color: #6baea8;
+    opacity: 0.8;
+    letter-spacing: 5px;
+}
+
+.chat {
+    margin: 0 auto 0;
+    width: 1000px;
+    height:697px;
+}
+
+.header_chat {
+    opacity: 0.8;
+    background-color: #12121a;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 4px;
+    height: 45px;
+}
+
+.header_chat_username {
+    display: inline-block;
+    margin: 0;
+    width: 300px;
+}
+
+a img {
+    width: 90%;
+}
+
+.header_chat_exit {
+    display: inline-block;
+    margin: 0;
+    width: 40px;
+    height: 41px;
+    padding: 4px 38px 4px 0;
+    margin-right: 0;
+    float: right;
+}
+
+#chat_user {
+    text-align: left;
+    margin: 0;
+    padding: 13px 0 13px 37px;
+    color: #6baea8;
+    font-size: 21px;
+}
+
+.content_chat {
+    padding: 40px 0 0 0;
+    box-sizing: border-box;
+    height: 482px;
+    opacity: 0.8;
+    background-color: #12121a;
+    margin-bottom: 4px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.chat_inpute_message {
+    padding-top: 10px;
+    padding-right: 26px;
+    float: left;
+    resize: none;
+    margin: -10px 34px 26px 39px;
+    height: 348px;
+    width: 594px;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+.users_tab {
+    float: right;
+    padding-top: 14px;
+    margin: -10px 38px 20px 0px;
+    width: 181px;
+    height: 286px;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+.li_tab:before {
+    content: '';
+    background-color: #131d24;
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left:-17px;
+    top: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.input_message {
+    float: left;
+    padding-left: 10px;
+    margin: 0px 18px 0px 38px;
+    width: 448px;
+    height: 32px;
+}
+
+.button {
+    outline: none;
+    height: 38px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    background-color: rgb(14, 110, 105);
+    text-align: center;
+    font-size: 18px;
+    font-family: "Arial Narrow", Arial;
+}
+
+.button_send {
+    width: 185px;
+    float: left;
+}
+
+.button:hover{
+    transition: border .3s;
+    border: 2px solid #74c6bf;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: none;
+    position: relative;
+    padding-bottom: 10px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+li span {
+    color: #74c6bf;
+}
+
+.li_room:before {
+    content: '';
+    background-color: #017232;
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: -23px;
+    top: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.border_style {
+    outline: none;
+    border: 2px solid #74c6bf;
+    font-family: "Arial Narrow", Arial;
+    background-color: rgb(14, 110, 105);
+    border-radius: 5px;
+    font-size: 18px;
+    resize: none;
+}
+
+.border_style:focus {
+    transition: border .3s;
+    border: 2px solid white;
+}
+
+.button_exit {
+    float: right;
+}
+
+::-webkit-input-placeholder {
+    color: #353535;
+}
+
+.common_chat__name {
+    color: #043242;
+}
+
+.common_chat__time {
+    color: #043242;
+}
+
+.clearfix {
+    height: 10px;
+    clear:both;
+    height: 0;
+    padding-bottom: 26px;
+}
+
+.create_new_room__name {
+    padding-left: 10px;
+    width: 200px;
+    height: 32px;
+}
+
+.create_new_room__name {
+    margin-right: 15px;
+}
+
+.add_users {
+    height: 32px;
+    width: 214px;
+    float: left;
+    padding-left: 8px;
+    margin-bottom: 26px;
+}
+
+.button_invite {
+    float: right;
+    margin-right: 36px;
+    height: 38px;
+    width: 228px;
+}
