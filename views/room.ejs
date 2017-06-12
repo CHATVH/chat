@@ -46,6 +46,11 @@
         <span class="common_chat__text">{{text}}</span>
     </li>
 </script>
+<script id="template_common_chat_user_list" type="text/x-handlebars-template">
+    {{#each data}}
+    <li class="li_tab">{{this}}</li>
+    {{/each}}
+</script>
 <script src="/javascripts/api.js"></script>
 <script src="/javascripts/room.js"></script>
 </body>

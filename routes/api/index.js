@@ -76,8 +76,9 @@ router.post('/credentials', (req, res, next) => {
 });
 
 router.post('/credentialsRoom', (req, res, next) => {
-    Room.find({name: req.body.room_name})
+    Room.find({name: req.body.room_name, user_id: req.session.user.id})
         .then(data => {
+            console.log(data);
             var profile = {
                 room: data[0],
                 user: req.session.user
@@ -94,8 +95,6 @@ router.post('/credentialsRoom', (req, res, next) => {
 router.post('/profile', (req, res, next) => {
   User.find({ username: req.body.username})
     .then(data => {
-
-
       res.send({
         success: true,
         data: {
@@ -113,47 +112,37 @@ router.post('/profile', (req, res, next) => {
 });
 
 router.post('/invite', (req, res, next) => {
-  User.find({ username: req.body.username})
-    .then(data => {
+  Room.find({user_id: req.body.user_id,room_id: req.body.room_id})
+      .then(data => {
+          if(data.length) {
+              res.send({
+                  success: false,
+                  text: "User already exist"
+              })
+          }else {
+              var room = new Room({
+                  owner_id: req.body.owner_id,
+                  name: req.body.name,
+                  pass_phrase: req.body.pass_phrase,
+                  user_id: req.body.user_id,
+                  room_id: req.body.room_id
+              });
 
-      res.send({
-        success: true,
-        data: data[0].public_key
-      });
-      console.log(data);
-    })
-    .catch(err => {
-      console.log('===ERROR GET PROFILE===');
-      console.log(err);
-      res.send({success: false, text: "Failed query"});
-    });
+              room.save()
+                  .then(params => {
 
+                      res.send({
+                          success: true
+                      })
+                  })
+                  .catch(err => {
+                      console.log('===ERROR INVITE===');
+                      console.log(err);
+                      res.send({success: false, text: "Failed query"});
+                  });
+          }
+      })
 
-
-
-
-  Room.find({_id: req.body._id})
-    .then(data => {
-      var room = new Room({
-        owner_id: data[0].owner_id,
-        name: data[0].name,
-        pass_phrase: req.body.pass_phrase,
-        user_id: req.body.user_id
-      });
-
-      room.save()
-        .then(params => {
-          console.log(params);
-          res.send({
-            success: true
-          })
-        })
-        .catch(err => {
-          console.log('===ERROR INVITE===');
-          console.log(err);
-          res.send({success: false, text: "Failed query"});
-        });
-    })
 
 });
 

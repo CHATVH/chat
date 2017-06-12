@@ -19,7 +19,7 @@ var io = require('socket.io')(server);
 server.listen(4200);
 
 require('./controllers/messages')(io);
-require('./controllers/chat_users')(io);
+//require('./controllers/chat_users')(io);
 
 
 

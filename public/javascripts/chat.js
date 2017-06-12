@@ -1,8 +1,6 @@
 function callback(response){
     var profile = response.data;
 
-    var socket = io.connect('http://localhost:4200', { query: "username="+ profile.username +"" });
-
     var btn = document.querySelectorAll('.button_send')[0];
     var input = document.querySelectorAll('.input_message')[0];
 
@@ -17,7 +15,30 @@ function callback(response){
     var textLogin = document.querySelectorAll('.our_login')[0];
     textLogin.innerHTML = profile.username;
 
-//Создание события по нажатию на кнопку
+
+    var socket = io.connect('http://localhost:4200', { query: "username="+ profile.username +"&room_id=1" });
+
+    //init messages
+    socket.emit('getAllMessages', {username: profile.username, room_id: 1});
+    socket.on('emitAllMessages', function (data) {
+        data.forEach(item => renderMessages(item));
+    });
+
+    //init list users
+    socket.emit('getAllUsers', {room_id: 1});
+    socket.on('emitAllUsers', function (data) {
+        renderUserList(data);
+    });
+
+    //init list of rooms
+    socket.emit('getAllRooms', {username: profile.username});
+    socket.on('emitAllRooms', function (data) {
+        data.forEach(item => renderRoomList(item));
+    });
+
+
+
+
     btn.addEventListener('click', function(){
         if(!input.value.length) return false;
         socket.emit('message', {
@@ -38,21 +59,23 @@ function callback(response){
             owner_id: profile.id,
             user_id: profile.id,
             pass_phrase: pass_phrase,
-            name: name_create_new_room.value
+            name: name_create_new_room.value,
+            room_id: CryptoJS.lib.WordArray.random(8).toString()
         });
         name_create_new_room.value = '';
     });
 
-    socket.on('connect', function(){
-        console.log();
-        //console.log(socket);
-    });
+
+
+
     socket.on('createdRoom', function(data){
         renderRoomList(data.name);
     });
-    socket.on('initRooms', function(data){
-        data.forEach(item => renderRoomList(item));
+    socket.on('getMessage', function (data) {
+        renderMessages(data)
     });
+
+
 
     function renderMessages(data){
         var source   = document.querySelectorAll('#template_common_chat')[0].innerHTML;
@@ -69,19 +92,6 @@ function callback(response){
         var template = Handlebars.compile(source);
         common_chat_users_list.innerHTML = template({data: data});
     }
-
-    socket.on('initCommonChat', function (data) {
-        data.forEach(item => renderMessages(item));
-    });
-
-    socket.on('initCommonUserList', function (data) {
-        renderUserList(data);
-    });
-
-
-    socket.on('getMessage', function (data) {
-        renderMessages(data)
-    });
 }
 
 new API('POST', '/api/credentials', {}, callback);
