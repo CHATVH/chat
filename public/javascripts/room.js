@@ -42,20 +42,24 @@ function callback(response){
         new API('POST', '/api/profile', {username: input_add_user.value}, function(data){
             if(!data.success) return false;
             var rsaDecrypt = new JSEncrypt();
-            var public_key_invite = data.public_key;
+            var public_key_invite = data.data.public_key;
 
             rsaDecrypt.setPrivateKey(sessionStorage.getItem('keyPrivate'));
 
-          var simKey = rsaDecrypt.decrypt(profile.room.pass_phrase);
+            console.log(profile.room.pass_phrase);
 
-          var rsaEncryptInvite = new JSEncrypt();
-          rsaEncryptInvite.setPublicKey(public_key_invite);
+            var simKey = rsaDecrypt.decrypt(profile.room.pass_phrase);
 
-          var encryptSimKey = rsaEncrypt.encrypt(simKey);
+            var rsaEncryptInvite = new JSEncrypt();
+            rsaEncryptInvite.setPublicKey(public_key_invite);
 
-          new API('POST', '/api/invite', {username: input_add_user.value, pass_phrase: encryptSimKey}, function(data){
+            var encryptSimKey = rsaEncryptInvite.encrypt(simKey);
 
-          });
+            console.log(simKey);
+
+            new API('POST', '/api/invite', {user_id: data.data.user_id, _id: profile.room._id, pass_phrase: encryptSimKey, }, function(data){
+
+            });
         });
 
         input.value = '';

@@ -41,7 +41,7 @@ app.use(session({
         url: 'mongodb://127.0.0.1:27017/server',
     }),
 	cookie:{
-		expires: new Date(Date.now() + 60 * 1000 * 60),
+		expires: new Date(Date.now() + 60 * 1000 * 60)
 		//maxAge: 1000
 	}
 }));
